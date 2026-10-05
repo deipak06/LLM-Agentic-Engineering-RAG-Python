@@ -1,0 +1,8 @@
+streamlit
+google-genai
+sentence-transformers
+pydantic
+python-dotenv
+
+
+& "D:\python\Week16-Deployment\venv\Scripts\streamlit.exe" run D:\python\Week16-Deployment\app.py

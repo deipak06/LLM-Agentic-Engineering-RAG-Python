@@ -1,0 +1,11 @@
+User question
+    ↓
+Agent (Gemini) — decides whether to search
+    ↓ (if search needed)
+search_knowledge_base(query) tool — runs your RAG pipeline
+    ↓
+Agent receives retrieved chunks as tool result
+    ↓
+Agent generates final answer from retrieved context
+    ↓ (if no search needed)
+Agent answers directly from its own knowledge

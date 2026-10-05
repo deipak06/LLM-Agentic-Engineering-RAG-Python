@@ -1,0 +1,22 @@
+{"messages": [{"role": "user", "content": "How many days of annual leave do I get?"}, {"role": "assistant", "content": "Employees are entitled to 20 days of annual leave per year."}]}
+{"messages": [{"role": "user", "content": "How many days can I carry over?"}, {"role": "assistant", "content": "Unused leave can be carried over to the next year, up to a maximum of 10 days."}]}
+{"messages": [{"role": "user", "content": "Can I work from home every day?"}, {"role": "assistant", "content": "No. Employees may work remotely up to 3 days per week."}]}
+{"messages": [{"role": "user", "content": "What are the WFH rules?"}, {"role": "assistant", "content": "Remote work must be approved by your direct manager. You must be available during core hours: 10am to 3pm. Equipment must be approved by IT."}]}
+{"messages": [{"role": "user", "content": "How often are performance reviews?"}, {"role": "assistant", "content": "Performance reviews are conducted twice a year, in June and December."}]}
+{"messages": [{"role": "user", "content": "How often must I change my password?"}, {"role": "assistant", "content": "All passwords must be changed every 90 days."}]}
+{"messages": [{"role": "user", "content": "Is two-factor authentication required?"}, {"role": "assistant", "content": "Yes. Two-factor authentication is mandatory for all company systems."}]}
+{"messages": [{"role": "user", "content": "How much notice do I need to give for leave?"}, {"role": "assistant", "content": "Leave must be requested at least 2 weeks in advance."}]}
+{"messages": [{"role": "user", "content": "How much sick leave do I get?"}, {"role": "assistant", "content": "Sick leave is separate from annual leave and is capped at 15 days per year."}]}
+{"messages": [{"role": "user", "content": "What is the meal expense limit?"}, {"role": "assistant", "content": "Meal expenses are capped at $50 per person per day."}]}
+{"messages": [{"role": "user", "content": "When must I submit expense claims?"}, {"role": "assistant", "content": "Business expenses must be submitted within 30 days of the expense date."}]}
+{"messages": [{"role": "user", "content": "Do I need a receipt for expenses?"}, {"role": "assistant", "content": "Receipts are required for any expense over $25."}]}
+{"messages": [{"role": "user", "content": "What travel expenses need pre-approval?"}, {"role": "assistant", "content": "Travel expenses require pre-approval for amounts over $500."}]}
+{"messages": [{"role": "user", "content": "How long is maternity leave?"}, {"role": "assistant", "content": "Maternity leave is 6 months, paid."}]}
+{"messages": [{"role": "user", "content": "How long is paternity leave?"}, {"role": "assistant", "content": "Paternity leave is 2 weeks, paid."}]}
+{"messages": [{"role": "user", "content": "What happens if I get a rating of 2 or below twice in a row?"}, {"role": "assistant", "content": "Employees with a rating of 2 or below for two consecutive reviews may face a performance improvement plan."}]}
+{"messages": [{"role": "user", "content": "What should I do if I discover a data breach?"}, {"role": "assistant", "content": "Data breaches must be reported to IT within 24 hours of discovery."}]}
+{"messages": [{"role": "user", "content": "Can I install software on my work computer?"}, {"role": "assistant", "content": "No. Employees must not install unauthorized software on company devices."}]}
+{"messages": [{"role": "user", "content": "What is a satisfactory performance rating?"}, {"role": "assistant", "content": "A rating of 3 or above is considered satisfactory performance."}]}
+{"messages": [{"role": "user", "content": "What scale are performance ratings on?"}, {"role": "assistant", "content": "Employees receive a rating from 1 to 5 in performance reviews."}]}
+{"messages": [{"role": "user", "content": "What is the company's policy on drone usage at the office?"}, {"role": "assistant", "content": "Drone usage is not covered in current policy. Contact HR directly."}]}
+{"messages": [{"role": "user", "content": "What happens if I violate the data breach policy?"}, {"role": "assistant", "content": "Violations of the data breach policy may result in disciplinary action up to termination."}]}

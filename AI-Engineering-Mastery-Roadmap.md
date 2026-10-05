@@ -1,0 +1,136 @@
+# AI Engineering Mastery Roadmap — 52 Weeks
+### Python Beginner → Strong Agentic/RAG/LLM Engineer
+**Pace:** 5–10 hrs/week | **Start:** Python basics + light LLM exposure
+
+---
+
+## How to use this document
+- Each week has a **Build Target** (something that *runs*, not a tutorial you read).
+- Each week has a **Bring to Coach** line — that's what you show me for feedback.
+- 🔴 marks a common mistake at this exact stage. Read it *before* you build, not after you fall in.
+- Don't skip the "Bring to Coach" step. Feedback is the compression mechanism — building alone for a year gets you to a different, weaker place than building with correction every week.
+- If a week feels too easy, say so when you bring it to me — I'll escalate the next one instead of letting you coast.
+
+---
+
+## PHASE 0 — Python Foundations That Actually Matter for AI (Weeks 1–6)
+
+You don't need a full "Python course." You need the 20% of Python that AI/agent code actually uses, fast.
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 1 | Write 10 small scripts: file I/O, string parsing, loops/conditionals, basic functions. End goal: a script that reads a `.txt` file and counts word frequency, printed sorted. | Your word-counter script + one thing that confused you |
+| 2 | Learn dicts, lists, list comprehensions, `*args`/`**kwargs`. Build: a simple command-line "todo list" app (add/remove/list, saved to a JSON file). | Your todo app code |
+| 3 | Classes & OOP basics (just enough: `__init__`, methods, inheritance). Rebuild the todo app as a `TodoList` class with `Task` objects. | Class-based rewrite — I'll check if your OOP is "real" or just functions wearing a costume |
+| 4 | Error handling (`try/except`), virtual envs, `pip`, reading docs. Build: a script that fetches data from a free public API (no LLM yet — e.g. a weather API) and handles failures gracefully. | Script + what happens when you deliberately break the internet connection and run it |
+| 5 | Type hints + intro to Pydantic. Rebuild Week 4's script with full type hints and a Pydantic model for the API response. | Typed version — this is the single most important Week 0-era skill for everything that follows |
+| 6 | Async/await basics. Build: a script that fetches 5 URLs concurrently with `asyncio` + `httpx`, compares time vs sequential. | Your async script + the timing comparison numbers |
+
+🔴 **Common mistake at this phase:** Trying to learn "all of Python" via a 40-hour course before building anything. You will forget 80% of it because it's not anchored to a project. Build first, look things up as you need them.
+
+---
+
+## PHASE 1 — LLM Fundamentals, Raw (No Frameworks) (Weeks 7–10)
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 7 | Make your first 3 raw API calls (Anthropic + OpenAI, no SDK shortcuts — read the raw request/response). Build: a CLI chatbot with conversation memory (a list of messages), using `requests` or the official SDK. | Your chatbot code + explain in your own words what a "message list" actually is |
+| 8 | Streaming responses + system prompts. Upgrade your chatbot to stream tokens to the terminal live, and add a configurable system prompt. | Streaming chatbot |
+| 9 | Function/tool calling — raw, no framework. Build: an agent that can call ONE real tool (e.g., a calculator function or a weather API) when the model decides to. | Your tool-calling agent + a log of one case where it called the tool wrong |
+| 10 | Add a second and third tool. Build: a "research assistant" CLI that can search the web (any free search API) and do basic math, deciding which tool to use per query. | Multi-tool agent + 3 example queries that broke it |
+
+🔴 **Common mistake:** Reaching for LangChain/CrewAI before this phase. If you can't explain what happens between "user sends message" and "model responds," frameworks will feel like magic instead of tools — and you won't be able to debug them when they break (they will break).
+
+---
+
+## PHASE 2 — RAG: Build It Wrong, Then Fix It Systematically (Weeks 11–20)
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 11 | Embeddings 101. Build: a script that embeds 20 sentences and finds the most similar pair using cosine similarity — no LLM involved, just the math working. | Your similarity script |
+| 12 | Naive RAG v1. Build: chunk a PDF/text file → embed chunks → store in a simple list/numpy array → retrieve top-3 by similarity → stuff into a prompt → get an answer. | Your naive RAG + 3 questions where it gave a wrong/weird answer |
+| 13 | Build a tiny eval set: 20 question/answer pairs against your own document. This becomes your ground truth for every RAG change from now on. | The eval set itself — I'll check if the questions are too easy (most beginner eval sets are) |
+| 14 | Swap in a real vector DB (Chroma or FAISS, both free/local). Re-run your eval set. Compare results. | Before/after eval scores |
+| 15 | Diagnose failure mode #1: chunking. Try 3 chunking strategies (fixed-size, sentence-based, semantic) on the same doc. Measure which helps your eval score. | Comparison table of the 3 strategies + your eval scores |
+| 16 | Diagnose failure mode #2: retrieval count & hybrid search. Add BM25 (keyword) alongside vector search. Measure impact. | Hybrid search results |
+| 17 | Add re-ranking (a cross-encoder reranker, free options exist via `sentence-transformers`). Measure impact on eval score again. | Reranked results + running eval score history (you should have 4 data points by now) |
+| 18 | Query rewriting/expansion — let the model reformulate the user's question before retrieval. Measure impact. | Before/after on 3 tricky queries |
+| 19 | Put it together: build "RAG v2" — your best chunking + hybrid + reranking + query rewriting combo, on a document set you actually care about (not a toy doc). | The full RAG v2 system + final eval score vs Week 12's naive version |
+| 20 | **Milestone project:** Ship RAG v2 as a small web app (Streamlit or FastAPI + simple frontend) so a friend can actually use it. | Live link or screen recording of someone else using it |
+
+🔴 **Common mistake:** Tweaking the prompt instead of fixing retrieval. Whenever the RAG answer is wrong, check what got retrieved *before* you touch the prompt. 95% of "the LLM is dumb" complaints are actually "the retrieval was bad."
+
+🔴 **Common mistake:** No eval set (you won't fall into this one — Week 13 forces it). Skipping it is the #1 reason RAG projects stall — people optimize by vibes and can't tell if a change actually helped.
+
+---
+
+## PHASE 3 — Agentic Systems (Weeks 21–34)
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 21 | Multi-step planning, raw. Build: an agent that breaks a task into a plan (list of steps) before executing, and executes step by step. Give it something that needs 4-5 sequential tool calls. | The plan it generates + where execution diverged from the plan |
+| 22 | Error handling & retries in agent loops. Deliberately feed your agent a broken tool (one that fails 30% of the time) and build retry logic. | Your retry logic + logs showing it recovering from failure |
+| 23 | Guardrails. Add input validation and output validation (Pydantic) so the agent can't call tools with garbage arguments. | Before/after: an example where garbage input used to break it and now doesn't |
+| 24 | Memory beyond the message list — build simple long-term memory (store facts to a file/DB, retrieve relevant ones each turn). | Your memory system + a multi-session test showing it remembers something |
+| 25 | **Pick ONE framework deliberately** (LangGraph for explicit control, or CrewAI for role-based multi-agent). Rebuild your Week 21 planning agent in it. | Side-by-side: raw version vs framework version — explain what the framework actually did for you |
+| 26 | Multi-agent basics: 2 agents with distinct roles collaborating on one task (e.g., a "researcher" agent feeding a "writer" agent). | Your 2-agent system + a transcript of their handoff |
+| 27 | Add a 3rd agent + a coordinator/orchestrator pattern. Build something with real utility (e.g., research → draft → critique loop). | Full transcript + where the agents disagreed or looped badly |
+| 28 | Agent observability: add logging/tracing for every tool call, decision, and token count. Build a simple dashboard or log viewer. | Your trace log from one full run |
+| 29 | **Start your agent eval suite.** Define 10 task scenarios with pass/fail criteria for your multi-agent system (not just "did it work" — "did it follow the right steps"). | Eval suite + first run results |
+| 30 | Cost & latency tracking. Add per-call token/cost logging across your whole system. Identify your most expensive step. | Cost breakdown report |
+| 31 | Human-in-the-loop pattern: add a checkpoint where the agent pauses for human approval before a risky action (e.g., before sending an email or making a purchase-like call). | Your HITL implementation |
+| 32 | Failure injection week: deliberately try to break your own agent system (bad inputs, ambiguous tasks, contradictory instructions). Document every failure mode found. | Your "red team" report on your own system |
+| 33 | Fix the top 3 failure modes from Week 32. Re-run your eval suite (Week 29) and compare. | Before/after eval scores |
+| 34 | **Milestone project:** Polish your multi-agent system into something demo-able, with a README explaining the architecture and known limitations. | Full repo link |
+
+🔴 **Common mistake:** Letting agents run unconstrained "because it's cooler." Production-grade agentic work is mostly guardrails and validation, not clever prompts — Weeks 22-23 and 31-33 exist specifically to break this habit early.
+
+🔴 **Common mistake:** Picking a framework for hype instead of fit. By Week 25 you should be able to explain *why* you chose yours, not just that it's popular.
+
+---
+
+## PHASE 4 — Models, Beyond the API (Weeks 35–42)
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 35 | Run a local open-weight model via Ollama (e.g., a Qwen or Llama small variant). Compare its output quality and latency to your API-based agent on the same tasks. | Comparison notes |
+| 36 | Quantization basics: run the same model at different quantization levels, measure speed/quality tradeoff. | Your benchmark table |
+| 37 | Fine-tuning intro: do a LoRA fine-tune on a small, narrow task (use a free Colab GPU or small local setup). It's okay if results are mediocre — the process is the lesson. | Your fine-tuning notebook + before/after examples (even if "after" is worse — explain why) |
+| 38 | Evaluate your fine-tuned model properly: build a small benchmark comparing base model vs fine-tuned model on held-out examples. | Your eval results |
+| 39 | Structured output deep-dive: compare 3 approaches to getting reliable JSON from a model (prompting only, Pydantic + retries, native structured output APIs). Measure failure rates. | Your comparison + failure rate numbers |
+| 40 | Model selection methodology: pick a real task and rigorously A/B test 3 different models (mix open + closed) against your own eval set, not a public leaderboard. | Your A/B test report |
+| 41 | Latency/cost optimization: take your agentic system from Phase 3 and try swapping in a cheaper/faster model for a subtask where it doesn't need the strongest model. Measure quality drop vs savings. | Before/after cost + quality numbers |
+| 42 | **Milestone:** Write up your model-selection framework (your own decision tree for "which model when") as a short doc. This becomes a portfolio artifact. | The write-up |
+
+🔴 **Common mistake:** Chasing every new model release instead of mastering the comparison *process*. By Week 40 you should trust your own eval process over a public leaderboard.
+
+---
+
+## PHASE 5 — Production, Public Proof, Feedback Loops (Weeks 43–52)
+
+| Week | Build Target | Bring to Coach |
+|---|---|---|
+| 43 | Pick your best project so far (RAG v2 or the multi-agent system). Deploy it somewhere real (Render, Fly.io, Vercel, etc.) so it has a real URL. | Live URL |
+| 44 | Get it in front of 5 real users (friends, a relevant Discord/community). Collect feedback directly. | Raw feedback notes (don't filter them before showing me) |
+| 45 | Fix the top issues from real user feedback. This is your first real fix-cycle under outside pressure. | Before/after based on feedback |
+| 46 | Open-source one component (your RAG pipeline, your agent framework wrapper, anything reusable). Write a real README. | Repo link |
+| 47 | Write up one "what broke and how I fixed it" technical post about your hardest debugging week (likely Phase 2 or 3). Publish it (blog, X, LinkedIn, dev.to). | The post + where you published it |
+| 48 | Get your code reviewed by someone better than you — a community PR review, a mentor, a harder peer. Don't cherry-pick an easy file. | Their feedback, unfiltered |
+| 49 | Implement the hardest piece of feedback from Week 48, even if it means real refactoring. | The refactor |
+| 50 | Stress-test your main project: load testing, edge cases, cost-at-scale estimate. Document the limits honestly. | Your limits document |
+| 51 | Build your portfolio narrative: 1-page summary of what you built across the year, with metrics (eval scores, cost savings, user feedback) — not just descriptions. | Draft portfolio page |
+| 52 | **Final milestone:** Full retrospective. What was your biggest unlock? Your biggest wasted week? Set the next 90-day plan past this roadmap (this is where "year 2" compounding starts). | Your retrospective — I'll help you scope what comes next |
+
+🔴 **Common mistake:** Polishing in private instead of getting outside feedback. Weeks 44, 48, and 49 exist specifically to force the correction signal most self-taught people never get.
+
+---
+
+## The Weekly Cadence (applies every week, all 52)
+- **Build something that runs** — never just follow a tutorial passively
+- **Bring it to me for feedback** — good and bad, every single week, not just when stuck
+- **One retrospective sentence**: what broke, why, what you'd do differently
+
+## What "good feedback" from me will look like
+- ✅ **Specific praise**: not "nice job" — I'll name the exact pattern you used well so you can repeat it deliberately
+- ❌ **Specific critique**: not "this is wrong" — I'll show you exactly where and why, and the fix
+- 📈 **Escalation**: if a week was too easy for you, I'll give you a harder variant before you move forward, so the plan adapts to your real pace instead of a fixed schedule

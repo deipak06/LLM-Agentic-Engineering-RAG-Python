@@ -1,0 +1,32 @@
+ACME Company Employee Handbook
+
+Section 1: Leave Policy
+Employees are entitled to 20 days of annual leave per year.
+Leave must be requested at least 2 weeks in advance.
+Unused leave can be carried over to the next year, up to a maximum of 10 days.
+Sick leave is separate from annual leave and is capped at 15 days per year.
+Maternity leave is 6 months paid. Paternity leave is 2 weeks paid.
+
+Section 2: Remote Work Policy
+Employees may work remotely up to 3 days per week.
+Remote work must be approved by the direct manager.
+Employees working remotely must be available during core hours: 10am to 3pm.
+All remote work equipment must be approved by the IT department.
+
+Section 3: Expense Policy
+Business expenses must be submitted within 30 days of the expense date.
+Receipts are required for any expense over $25.
+Meal expenses are capped at $50 per person per day.
+Travel expenses require pre-approval for amounts over $500.
+
+Section 4: Performance Review
+Performance reviews are conducted twice a year, in June and December.
+Employees receive a rating from 1 to 5.
+A rating of 3 or above is considered satisfactory performance.
+Employees with a rating of 2 or below for two consecutive reviews may face a performance improvement plan.
+
+Section 5: IT and Security
+All passwords must be changed every 90 days.
+Two-factor authentication is mandatory for all company systems.
+Employees must not install unauthorized software on company devices.
+Data breaches must be reported to IT within 24 hours of discovery.

@@ -1,0 +1,38 @@
+[
+  {
+    "question": "What is the company's policy on drone usage at the office?",
+    "agent_answer": "I searched the HR knowledge base, but there is no mention of a policy regarding drone usage at the office. \n\nIf you're thinking about flying a drone, you might want to check with Office Management or HR directly to see if there are any building rules or safety guidelines in place!",
+    "confidence_score": 0.5433736085891723,
+    "reason": "context_sim=0.41, question_sim=0.86",
+    "timestamp": "2026-09-28 15uman:29:38",
+    "status": "resolved",
+    "human_answer": "Drone usage is not covered in current policy. Contact HR directly."
+  },
+  {
+    "question": "What happens if I violate the data breach policy?",
+    "agent_answer": "I searched the HR knowledge base for information regarding the consequences of violating the data breach policy, but the policy details available in the system do not specify the penalties or disciplinary actions for a breach. \n\nHowever, the policy does state that **data breaches must be reported to IT within 24 hours of discovery**. \n\nIf you have questions about the specific consequences or need to report a security concern, I recommend reaching out directly to the IT or HR department.",
+    "confidence_score": 0.5467163771390915,
+    "reason": "context_sim=0.46, question_sim=0.75",
+    "timestamp": "2026-09-28 15uman:30:07",
+    "status": "resolved",
+    "human_answer": "Violations of the data breach policy may result in disciplinary action up to termination."
+  },
+  {
+    "question": "What is the company's policy on drone usage at the office?",
+    "agent_answer": "I couldn't find any specific information regarding a policy on drone usage at the office in the company knowledge base. It's likely that this hasn't been officially addressed in our standard HR or IT policies. \n\nIf you are considering flying a drone at the office\u2014whether for work or recreational purposes\u2014I'd recommend checking directly with your office manager or facilities team to ensure safety and compliance with building regulations.",
+    "confidence_score": 0.5488690227270125,
+    "reason": "context_sim=0.41, question_sim=0.88",
+    "timestamp": "2026-09-28 15uman:33:17",
+    "status": "pending",
+    "human_answer": null
+  },
+  {
+    "question": "What happens if I violate the data breach policy?",
+    "agent_answer": "I couldn't find specific details regarding the consequences or disciplinary actions for violating the data breach policy in our knowledge base. \n\nHowever, the policy does state that **data breaches must be reported to IT within 24 hours of discovery**. If you are concerned about a potential violation or need to know the specific disciplinary procedures, I recommend reaching out directly to the IT Security or HR department for guidance.",
+    "confidence_score": 0.5412583947181702,
+    "reason": "context_sim=0.45, question_sim=0.76",
+    "timestamp": "2026-09-28 15uman:33:25",
+    "status": "pending",
+    "human_answer": null
+  }
+]
