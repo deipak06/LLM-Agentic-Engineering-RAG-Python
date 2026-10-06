@@ -1,8 +1,7 @@
-streamlit
-google-genai
-sentence-transformers
-pydantic
-python-dotenv
-
-
-& "D:\python\Week16-Deployment\venv\Scripts\streamlit.exe" run D:\python\Week16-Deployment\app.py
+streamlit==1.65.0
+google-genai==2.28.0
+sentence-transformers==3.3.1
+pydantic==2.13.5
+python-dotenv==1.2.4
+torch==2.2.2
+transformers==4.47.0
